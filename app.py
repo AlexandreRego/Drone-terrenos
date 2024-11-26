@@ -10,7 +10,8 @@ import plotly.express as px
 
 @st.cache_resource
 def carrega_modelo():
-    url = 'https://drive.google.com/drive/u/1/folders/1680ICukzpC4lLjbApNAeJiu3Lv8U5Csd'
+    #https://drive.google.com/file/d/1H0NzMtMvoh9B9bVH0-M5gKK3btcBC_pC/view?usp=drive_link
+    url = 'https://drive.google.com/uc?id=1H0NzMtMvoh9B9bVH0-M5gKK3btcBC_pC'
     gdown.download(url, 'modelo_quantizado16bits.tflite')
     interpreter = tf.lite.Interpreter(model_path='modelo_quantizado16bits.tflite')
     interpreter.allocate_tensors()
@@ -43,14 +44,14 @@ def previsao(interpreter,image):
     interpreter.invoke()
 
     output_data = interpreter.get_tensor(output_details[0]['index'])
-    classes = ['bom', 'Erosão', 'Hrepresas']
+    classes = ['bom', 'Erosão', 'represas']
 
     df = pd.DataFrame()
     df['classes'] = classes
     df['probabilidades (%)'] = 100*output_data[0]
 
     fig = px.bar(df,y='classes',x='probabilidades (%)',  orientation='h', text='probabilidades (%)', title='Probabilidade de anomalias no terreno')
-
+    st.plotly_chart(fig)
 
 def main():
     st.set_page_config(
@@ -63,8 +64,11 @@ def main():
     #Carrega imagem
     image = carrega_imagem()
     #Classifica
+    if image is not None:
+        previsao(interpreter, image)
 
 
-if __name__ == "__main__":
+
+if __name__ == "__main___":
     main()
 
