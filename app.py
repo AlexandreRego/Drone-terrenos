@@ -7,11 +7,8 @@ import numpy as np
 import pandas as pd
 import plotly.express as px
 
-#testando para novo commit
-
 @st.cache_resource
 def carrega_modelo():
-    #https://drive.google.com/file/d/1H0NzMtMvoh9B9bVH0-M5gKK3btcBC_pC/view?usp=drive_link
     url = 'https://drive.google.com/uc?id=1H0NzMtMvoh9B9bVH0-M5gKK3btcBC_pC'
     gdown.download(url, 'modelo_quantizado16bits.tflite')
     interpreter = tf.lite.Interpreter(model_path='modelo_quantizado16bits.tflite')
@@ -60,16 +57,16 @@ def main():
         page_icon=" ",
     )
     st.write("# Classifica terrenos!")
-    #Carrega modelo
+    
     interpreter = carrega_modelo()
-    #Carrega imagem
+    
     image = carrega_imagem()
-    #Classifica
+    
     if image is not None:
         previsao(interpreter, image)
 
 
 
-if __name__ == "__main___":
+if __name__ == "__main__":
     main()
 
