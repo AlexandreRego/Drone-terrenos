@@ -9,9 +9,9 @@ import plotly.express as px
 
 @st.cache_resource
 def carrega_modelo():
-    url = 'https://drive.google.com/uc?id=1H0NzMtMvoh9B9bVH0-M5gKK3btcBC_pC'
-    gdown.download(url, 'modelo_quantizado16bits.tflite')
-    interpreter = tf.lite.Interpreter(model_path='modelo_quantizado16bits.tflite')
+    url = 'https://drive.google.com/uc?id=1Gys0x_5xoPuHWWF150LBSKOUbt1mztEK'
+    gdown.download(url, 'model.weights.h5')
+    interpreter = tf.lite.Interpreter(model_path='model.weights.h5')
     interpreter.allocate_tensors()
 
     return interpreter
