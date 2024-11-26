@@ -7,6 +7,7 @@ import numpy as np
 import pandas as pd
 import plotly.express as px
 
+#testando para novo commit
 
 @st.cache_resource
 def carrega_modelo():
