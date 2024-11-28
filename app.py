@@ -54,9 +54,9 @@ def previsao(interpreter,image):
 def main():
     st.set_page_config(
         page_title="Classifica terrenos",
-        page_icon=" ",
+        # page_icon=" ",
     )
-    st.write("# Classifica terrenos!")
+    # st.write("# Classifica terrenos!")
     
     interpreter = carrega_modelo()
     
