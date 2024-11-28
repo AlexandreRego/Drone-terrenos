@@ -81,13 +81,14 @@ from PIL import Image
 import numpy as np
 import pandas as pd
 import plotly.express as px
+from pathlib import Path
 
 @st.cache_resource
 def carrega_modelo():
-    #https://drive.google.com/file/d/1QoEqBjcBUjvzRC2P3WH1aODekGsj1R1u/view?usp=drive_link
-    url = 'https://drive.google.com/uc?id=1QoEqBjcBUjvzRC2P3WH1aODekGsj1R1u'
-    gdown.download(url, 'modelo_quantizado16bits.tflite', quiet=False)
-    interpreter = tf.lite.Interpreter(model_path='modelo_quantizado16bits.tflite')
+    #https://drive.google.com/file/d/1yl7bNFmmJO336IoMAFimQgFRXMWWf-B6/view?usp=drive_link
+    url = 'https://drive.google.com/uc?id=1yl7bNFmmJO336IoMAFimQgFRXMWWf-B6'
+    gdown.download(url, 'model2', quiet=False)
+    interpreter = tf.lite.Interpreter(model_path='model2')
     interpreter.allocate_tensors()
     st.success("Modelo carregado com sucesso!")
     return interpreter
