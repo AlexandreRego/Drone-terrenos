@@ -2,7 +2,6 @@ import streamlit as st
 import gdown
 import tensorflow as tf
 import io
-import PIL
 from PIL import Image
 import numpy as np
 import pandas as pd
