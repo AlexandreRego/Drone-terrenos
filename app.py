@@ -85,8 +85,8 @@ from pathlib import Path
 
 @st.cache_resource
 def carrega_modelo():
-    #https://drive.google.com/file/d/103UzwkyMMqMQbMuYIB9TkAiBaZVizUXi/view?usp=drive_link
-    url = 'https://drive.google.com/uc?id=103UzwkyMMqMQbMuYIB9TkAiBaZVizUXi'
+    #https://drive.google.com/file/d/1vRbnsbL4Wfwo7KdRTmZid0YI1rIKvw41/view?usp=drive_link
+    url = 'https://drive.google.com/uc?id=1vRbnsbL4Wfwo7KdRTmZid0YI1rIKvw41'
     gdown.download(url, 'teste.h5', quiet=False)
     interpreter = tf.lite.Interpreter(model_path='teste.h5')
     interpreter.allocate_tensors()
