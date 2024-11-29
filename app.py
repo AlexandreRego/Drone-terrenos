@@ -130,7 +130,7 @@ def previsao(interpreter, image):
     output_data = interpreter.get_tensor(output_details[0]['index'])
 
     # Classes do modelo
-    classes = ['bom','erosao_represas','inviavel', 'viavel']
+    classes = ['bom','erosao_represas']
     df = pd.DataFrame({'classes': classes, 'probabilidades (%)': 100 * output_data[0]})
     
     # Plotar gráfico de barras
