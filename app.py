@@ -87,8 +87,8 @@ from pathlib import Path
 def carrega_modelo():
     #https://drive.google.com/file/d/1vRbnsbL4Wfwo7KdRTmZid0YI1rIKvw41/view?usp=drive_link
     url = 'https://drive.google.com/uc?id=1vRbnsbL4Wfwo7KdRTmZid0YI1rIKvw41'
-    gdown.download(url, 'teste.h5', quiet=False)
-    interpreter = tf.lite.Interpreter(model_path='teste.h5')
+    gdown.download(url, 'modelo_quantizado16bits.tflite', quiet=False)
+    interpreter = tf.lite.Interpreter(model_path='modelo_quantizado16bits.tflite')
     interpreter.allocate_tensors()
     st.success("Modelo carregado com sucesso!")
     return interpreter
