@@ -85,10 +85,10 @@ from pathlib import Path
 
 @st.cache_resource
 def carrega_modelo():
-    #https://drive.google.com/file/d/1MPHhzJXw5BayXnHHQ-cIG4OOH1BZ8I2X/view?usp=drive_link
-    url = 'https://drive.google.com/uc?id=1MPHhzJXw5BayXnHHQ-cIG4OOH1BZ8I2X'
-    gdown.download(url, 'modelo_quantizado16bits.tflite', quiet=False)
-    interpreter = tf.lite.Interpreter(model_path='modelo_quantizado16bits.tflite')
+    #https://drive.google.com/file/d/1Bzyk2QPrrFdovWX7_o8893IkQjkShovo/view?usp=drive_link
+    url = 'https://drive.google.com/uc?id=1Bzyk2QPrrFdovWX7_o8893IkQjkShovo'
+    gdown.download(url, 'teste', quiet=False)
+    interpreter = tf.lite.Interpreter(model_path='teste')
     interpreter.allocate_tensors()
     st.success("Modelo carregado com sucesso!")
     return interpreter
