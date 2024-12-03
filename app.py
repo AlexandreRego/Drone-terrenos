@@ -221,7 +221,7 @@ def previsao(interpreter, image):
 
     # Classes do modelo
     classes = ['viavel','erosao','represas']
-    df = pd.DataFrame({'classes': classes, 'probabilidades (%)': 100 * output_data[0]})
+    df = pd.DataFrame({'classes': classes, 'probabilidades (%)': 75 * output_data[0]})
     
     # Plotar gráfico de barras
     fig = px.bar(
